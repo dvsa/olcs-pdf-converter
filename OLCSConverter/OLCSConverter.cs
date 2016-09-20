@@ -10,7 +10,7 @@ using System.Text;
 using Microsoft.Owin.Hosting;
 using NLog;
 
-namespace WinPrint
+namespace OLCSConverter
 {
     public partial class OLCSConverter : ServiceBase
     {

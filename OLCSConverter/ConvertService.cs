@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using Microsoft.Office.Interop.Word;
 using NLog;
 
-namespace WinPrint
+namespace OLCSConverter
 {
     public class ConvertService
     {

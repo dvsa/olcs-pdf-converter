@@ -1,4 +1,4 @@
-﻿namespace WinPrint
+﻿namespace OLCSConverter
 {
     partial class OLCSConverter
     {
