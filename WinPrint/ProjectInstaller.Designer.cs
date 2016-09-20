@@ -28,32 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.serviceProcessInstaller1 = new System.ServiceProcess.ServiceProcessInstaller();
-            this.serviceInstaller1 = new System.ServiceProcess.ServiceInstaller();
+            this.svcProcessInstaller = new System.ServiceProcess.ServiceProcessInstaller();
+            this.svcInstaller = new System.ServiceProcess.ServiceInstaller();
             // 
-            // serviceProcessInstaller1
+            // svcProcessInstaller
             // 
-            this.serviceProcessInstaller1.Account = System.ServiceProcess.ServiceAccount.LocalSystem;
-            this.serviceProcessInstaller1.Password = null;
-            this.serviceProcessInstaller1.Username = null;
+            this.svcProcessInstaller.Account = System.ServiceProcess.ServiceAccount.LocalSystem;
+            this.svcProcessInstaller.Password = null;
+            this.svcProcessInstaller.Username = null;
             // 
-            // serviceInstaller1
+            // svcInstaller
             // 
-            this.serviceInstaller1.Description = "A HTTP Service converting RTF, DOC and DOCX Document(s) to PDF";
-            this.serviceInstaller1.DisplayName = "OLCS Document Converter";
-            this.serviceInstaller1.ServiceName = "Service1";
+            this.svcInstaller.Description = "A HTTP Service converting RTF, DOC and DOCX Document(s) to PDF";
+            this.svcInstaller.DisplayName = "OLCS Document Converter";
+            this.svcInstaller.ServiceName = "Service1";
             // 
             // ProjectInstaller
             // 
             this.Installers.AddRange(new System.Configuration.Install.Installer[] {
-            this.serviceProcessInstaller1,
-            this.serviceInstaller1});
+            this.svcProcessInstaller,
+            this.svcInstaller});
 
         }
 
         #endregion
 
-        private System.ServiceProcess.ServiceProcessInstaller serviceProcessInstaller1;
-        private System.ServiceProcess.ServiceInstaller serviceInstaller1;
+        private System.ServiceProcess.ServiceProcessInstaller svcProcessInstaller;
+        private System.ServiceProcess.ServiceInstaller svcInstaller;
     }
 }

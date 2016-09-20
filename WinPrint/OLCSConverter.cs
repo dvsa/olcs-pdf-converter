@@ -12,11 +12,11 @@ using NLog;
 
 namespace WinPrint
 {
-    public partial class Service1 : ServiceBase
+    public partial class OLCSConverter : ServiceBase
     {
         private readonly Logger _logger = LogManager.GetCurrentClassLogger();
         private IDisposable _server;
-        public Service1()
+        public OLCSConverter()
         {
             InitializeComponent();
         }

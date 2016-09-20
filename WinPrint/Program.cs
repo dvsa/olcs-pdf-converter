@@ -16,14 +16,14 @@ namespace WinPrint
         {
             if (Environment.UserInteractive)
             {
-                Service1 myServ = new Service1();
+                OLCSConverter myServ = new OLCSConverter();
             }
             else
             {
                 ServiceBase[] ServicesToRun;
                 ServicesToRun = new ServiceBase[]
                 {
-                    new Service1()
+                    new OLCSConverter()
                 };
 
                 ServiceBase.Run(ServicesToRun);

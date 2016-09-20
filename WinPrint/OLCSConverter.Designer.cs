@@ -1,6 +1,6 @@
 ﻿namespace WinPrint
 {
-    partial class Service1
+    partial class OLCSConverter
     {
         /// <summary> 
         /// Required designer variable.

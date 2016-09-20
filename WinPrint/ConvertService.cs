@@ -12,7 +12,7 @@ using NLog;
 
 namespace WinPrint
 {
-    public class PrintService
+    public class ConvertService
     {
         private Application _wordInstance;
         private readonly Logger _logger = LogManager.GetCurrentClassLogger();
@@ -35,7 +35,7 @@ namespace WinPrint
             }
         }
 
-        public PrintService(string srcPath, string destPath)
+        public ConvertService(string srcPath, string destPath)
         {
             _srcPath = srcPath;
             _destPath = destPath;

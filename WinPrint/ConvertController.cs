@@ -19,14 +19,14 @@ namespace WinPrint
         private readonly string _destPath;
         private readonly string[] _acceptableExts = {".rtf", ".doc", ".docx"};
 
-        public PrintService PrintSvc { get; }
+        public ConvertService PrintSvc { get; }
 
         public ConvertController()
         {
             _srcPath = ConfigurationManager.AppSettings["srcDocsPath"];
             _destPath = ConfigurationManager.AppSettings["destDocsPath"];
 
-            PrintSvc = new PrintService(_srcPath, _destPath);
+            PrintSvc = new ConvertService(_srcPath, _destPath);
         }
 
         [Route("print")]
