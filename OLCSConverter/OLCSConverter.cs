@@ -23,6 +23,8 @@ namespace OLCSConverter
 
         protected override void OnStart(string[] args)
         {
+            _logger.Info("Starting OLCS Converter Service");
+
             StartOptions opts = new StartOptions();
             opts.Urls.Add("http://localhost:8080");
             opts.Urls.Add("http://+:8080");
@@ -31,6 +33,8 @@ namespace OLCSConverter
         
         protected override void OnStop()
         {
+            _logger.Info("Stopping OLCS Converter Service");
+
             if (_server != null)
             {
                 _server.Dispose();
