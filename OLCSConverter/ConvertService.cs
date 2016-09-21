@@ -45,7 +45,7 @@ namespace OLCSConverter
         {
             try
             {
-                _logger.Info($"fileName = {fileName}");
+                _logger.Info($"Converting fileName = {fileName}");
 
                 object objFilePath = Path.Combine(_srcPath, fileName);
                 string fileNameWithoutExt = Path.GetFileNameWithoutExtension(fileName);
@@ -59,10 +59,12 @@ namespace OLCSConverter
                 doc.SaveAs(Path.Combine(_destPath, $"{fileNameWithoutExt}.pdf"), WdSaveFormat.wdFormatPDF);
                 doc.Close(false, ref _missing, ref _missing);
                 doc = null;
+
+                _logger.Info($"Successfully converted fileName = {fileName}");
             }
             catch (Exception ex)
             {
-                _logger.Error(ex, "Error in print service");
+                _logger.Error(ex, $"Error converted fileName = {fileName}");
                 _logger.Error(ex, ex.Message);
                 _logger.Error(ex, ex.StackTrace);
                 
