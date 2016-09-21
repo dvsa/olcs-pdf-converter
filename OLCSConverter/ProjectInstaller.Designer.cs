@@ -42,6 +42,7 @@
             this.svcInstaller.Description = "A HTTP Service converting RTF, DOC and DOCX Document(s) to PDF";
             this.svcInstaller.DisplayName = "OLCS Document Converter";
             this.svcInstaller.ServiceName = "OLCS Doc Converter";
+            this.svcInstaller.StartType = System.ServiceProcess.ServiceStartMode.Automatic;
             // 
             // ProjectInstaller
             // 
