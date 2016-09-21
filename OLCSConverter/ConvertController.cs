@@ -29,10 +29,10 @@ namespace OLCSConverter
             PrintSvc = new ConvertService(_srcPath, _destPath);
         }
 
-        [Route("print")]
+        [Route("test")]
         public IEnumerable<string> Get()
         {
-            return new[] { "aa", "bb" };
+            return new[] { "Reached", "OK" };
         }
 
         [Route("convert-document")]
@@ -69,7 +69,7 @@ namespace OLCSConverter
 
                 if (!File.Exists(filePathToSend))
                 {
-                    _logger.Info($"Could not find generated file ({filePathToSend}).");
+                    _logger.Error($"Could not find generated file = ({filePathToSend}).");
                     return Request.CreateErrorResponse(HttpStatusCode.BadRequest, "Could not find generated file.");
                 }
 
@@ -98,7 +98,7 @@ namespace OLCSConverter
 
         private void CleanupOldFiles()
         {
-            var filePrefix = DateTime.UtcNow.AddDays(-2).ToString("yyyy - MM - dd_*");
+            var filePrefix = DateTime.UtcNow.AddDays(-2).ToString("yyyy-MM-dd_*");
 
             RemoveOldFiles(filePrefix, _srcPath);
             RemoveOldFiles(filePrefix, _destPath);
