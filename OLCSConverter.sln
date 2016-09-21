@@ -5,16 +5,37 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OLCSConverter", "OLCSConverter\OLCSConverter.csproj", "{1971F8F4-B158-4ADC-A426-4E592A98A9C6}"
 EndProject
+Project("{6141683F-8A12-4E36-9623-2EB02B2C2303}") = "OLCSConverterSetup", "OLCSConverterSetup\OLCSConverterSetup.isproj", "{6D891913-9999-4F5C-BF36-1BBFBBFB7D8D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		CD_ROM|Any CPU = CD_ROM|Any CPU
 		Debug|Any CPU = Debug|Any CPU
+		DVD-5|Any CPU = DVD-5|Any CPU
 		Release|Any CPU = Release|Any CPU
+		SingleImage|Any CPU = SingleImage|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1971F8F4-B158-4ADC-A426-4E592A98A9C6}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
+		{1971F8F4-B158-4ADC-A426-4E592A98A9C6}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
 		{1971F8F4-B158-4ADC-A426-4E592A98A9C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1971F8F4-B158-4ADC-A426-4E592A98A9C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1971F8F4-B158-4ADC-A426-4E592A98A9C6}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
+		{1971F8F4-B158-4ADC-A426-4E592A98A9C6}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
 		{1971F8F4-B158-4ADC-A426-4E592A98A9C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1971F8F4-B158-4ADC-A426-4E592A98A9C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1971F8F4-B158-4ADC-A426-4E592A98A9C6}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
+		{1971F8F4-B158-4ADC-A426-4E592A98A9C6}.SingleImage|Any CPU.Build.0 = Release|Any CPU
+		{6D891913-9999-4F5C-BF36-1BBFBBFB7D8D}.CD_ROM|Any CPU.ActiveCfg = CD_ROM
+		{6D891913-9999-4F5C-BF36-1BBFBBFB7D8D}.CD_ROM|Any CPU.Build.0 = CD_ROM
+		{6D891913-9999-4F5C-BF36-1BBFBBFB7D8D}.Debug|Any CPU.ActiveCfg = DVD-5
+		{6D891913-9999-4F5C-BF36-1BBFBBFB7D8D}.Debug|Any CPU.Build.0 = DVD-5
+		{6D891913-9999-4F5C-BF36-1BBFBBFB7D8D}.DVD-5|Any CPU.ActiveCfg = DVD-5
+		{6D891913-9999-4F5C-BF36-1BBFBBFB7D8D}.DVD-5|Any CPU.Build.0 = DVD-5
+		{6D891913-9999-4F5C-BF36-1BBFBBFB7D8D}.Release|Any CPU.ActiveCfg = SingleImage
+		{6D891913-9999-4F5C-BF36-1BBFBBFB7D8D}.Release|Any CPU.Build.0 = SingleImage
+		{6D891913-9999-4F5C-BF36-1BBFBBFB7D8D}.SingleImage|Any CPU.ActiveCfg = SingleImage
+		{6D891913-9999-4F5C-BF36-1BBFBBFB7D8D}.SingleImage|Any CPU.Build.0 = SingleImage
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
