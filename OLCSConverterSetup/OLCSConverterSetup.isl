@@ -1890,6 +1890,7 @@
 		<col def="I4">ISAttributes</col>
 		<col def="S72">ISComponentSubFolder_</col>
 		<row><td>microsoft.owin.host.httplist</td><td>Microsoft.Owin.Host.HttpListener.dll</td><td>MICROS~1.DLL|Microsoft.Owin.Host.HttpListener.dll</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sachin.patel\Documents\Visual Studio 2015\Projects\OLCSConverter\OLCSConverter\bin\Debug\Microsoft.Owin.Host.HttpListener.dll</td><td>1</td><td/></row>
+		<row><td>nlog.config</td><td>ISX_DEFAULTCOMPONENT</td><td>NLOG~1.CON|NLog.config</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sachin.patel\Documents\Visual Studio 2015\Projects\OLCSConverter\OLCSConverter\bin\Debug\NLog.config</td><td>1</td><td/></row>
 		<row><td>olcsconverter.exe</td><td>OLCSConverter.exe</td><td>OLCSCO~1.EXE|OLCSConverter.exe</td><td>0</td><td/><td/><td>0</td><td>1</td><td>C:\Users\sachin.patel\Documents\Visual Studio 2015\Projects\OLCSConverter\OLCSConverter\bin\Debug\OLCSConverter.exe</td><td>1</td><td/></row>
 		<row><td>olcsconverter.exe.config</td><td>ISX_DEFAULTCOMPONENT</td><td>OLCSCO~1.CON|OLCSConverter.exe.config</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\sachin.patel\Documents\Visual Studio 2015\Projects\OLCSConverter\OLCSConverter\bin\Debug\OLCSConverter.exe.config</td><td>1</td><td/></row>
 	</table>
