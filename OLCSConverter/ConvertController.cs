@@ -98,18 +98,21 @@ namespace OLCSConverter
 
         private void CleanupOldFiles()
         {
-            var filePrefix = DateTime.UtcNow.AddDays(-2).ToString("yyyy-MM-dd_*");
-
-            RemoveOldFiles(filePrefix, _srcPath);
-            RemoveOldFiles(filePrefix, _destPath);
+            RemoveOldFiles(_srcPath);
+            RemoveOldFiles(_destPath);
         }
 
-        private void RemoveOldFiles(string filePrefix, string path)
+        private void RemoveOldFiles(string path)
         {
-            var oldFiles = Directory.GetFiles(path, filePrefix);
-            foreach (var oldFile in oldFiles)
+            var twoDaysAgo = DateTime.UtcNow.AddDays(-2);
+
+            var files = Directory.GetFiles(path, "*.*", SearchOption.TopDirectoryOnly);
+            foreach (var file in files)
             {
-                File.Delete(oldFile);
+                if (File.GetCreationTimeUtc(file) < twoDaysAgo)
+                {
+                    File.Delete(file);
+                }
             }
         }
     }
