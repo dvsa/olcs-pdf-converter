@@ -18,6 +18,7 @@ namespace OLCSConverter
         private readonly string _srcPath;
         private readonly string _destPath;
         private readonly string[] _acceptableExts = {".rtf", ".doc", ".docx"};
+        private readonly bool _canShowWord;
 
         public ConvertService PrintSvc { get; }
 
@@ -25,8 +26,9 @@ namespace OLCSConverter
         {
             _srcPath = ConfigurationManager.AppSettings["srcDocsPath"];
             _destPath = ConfigurationManager.AppSettings["destDocsPath"];
+            _canShowWord = bool.Parse(ConfigurationManager.AppSettings["canShowWord"]);
 
-            PrintSvc = new ConvertService(_srcPath, _destPath);
+            PrintSvc = new ConvertService(_srcPath, _destPath, _canShowWord);
         }
 
         [Route("test")]

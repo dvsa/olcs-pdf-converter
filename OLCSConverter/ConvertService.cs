@@ -21,6 +21,7 @@ namespace OLCSConverter
         private readonly object _objFalse = false;
         private readonly string _srcPath;
         private readonly string _destPath;
+        private readonly bool _canShowWord;
         public Application WordInstance
         {
             get
@@ -28,17 +29,18 @@ namespace OLCSConverter
                 if (_wordInstance == null)
                 {
                     _wordInstance = new Application();
-                    _wordInstance.Visible = false;
+                    _wordInstance.Visible = _canShowWord;
                 }
 
                 return _wordInstance;
             }
         }
 
-        public ConvertService(string srcPath, string destPath)
+        public ConvertService(string srcPath, string destPath, bool canShowWord)
         {
             _srcPath = srcPath;
             _destPath = destPath;
+            _canShowWord = canShowWord;
         }
         
         public void ProcessThroughWord(string fileName)
