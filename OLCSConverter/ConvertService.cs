@@ -42,7 +42,7 @@ namespace OLCSConverter
             _destPath = destPath;
             _canShowWord = canShowWord;
         }
-        
+
         public void ProcessThroughWord(string fileName)
         {
             try
@@ -51,12 +51,41 @@ namespace OLCSConverter
 
                 object objFilePath = Path.Combine(_srcPath, fileName);
                 string fileNameWithoutExt = Path.GetFileNameWithoutExtension(fileName);
-                
+
                 WordInstance.DisplayAlerts = WdAlertLevel.wdAlertsNone;
-                
-                var doc = WordInstance.Documents.Open(ref objFilePath, _missing, _objFalse, _missing, _missing, 
-                                                        _missing, _missing, _missing, _missing, _missing, _missing, _objTrue);
-                
+
+                var doc = WordInstance.Documents.Open(
+                    FileName: ref objFilePath,
+                    ConfirmConversions: _missing,
+                    ReadOnly: _objFalse,
+                    AddToRecentFiles: _missing,
+                    PasswordDocument: _missing,
+                    PasswordTemplate: _missing,
+                    Revert: _missing,
+                    WritePasswordDocument: _missing,
+                    WritePasswordTemplate: _missing, 
+                    Format: _missing, 
+                    Encoding: _missing, 
+                    Visible: _objTrue);
+
+                //WordInstance.Documents.Open(
+                //    FileName: ref objFilePath,
+                //    ConfirmConversions: _objFalse,
+                //    ReadOnly: _objTrue,
+                //    AddToRecentFiles: _objFalse,
+                //    PasswordDocument: ref _missing,
+                //    PasswordTemplate: ref _missing,
+                //    Revert: ref _missing,
+                //    WritePasswordDocument: ref _missing,
+                //    WritePasswordTemplate: ref _missing,
+                //    Format: ref _missing,
+                //    Encoding: ref _missing,
+                //    Visible: _objFalse, 
+                //    OpenAndRepair: _objTrue, 
+                //    DocumentDirection: ref _missing, 
+                //    NoEncodingDialog: _objTrue, 
+                //    XMLTransform: ref _missing);
+
                 doc.Activate();
                 doc.SaveAs(Path.Combine(_destPath, $"{fileNameWithoutExt}.pdf"), WdSaveFormat.wdFormatPDF);
                 doc.Close(false, ref _missing, ref _missing);
@@ -69,7 +98,7 @@ namespace OLCSConverter
                 _logger.Error(ex, $"Error converted fileName = {fileName}");
                 _logger.Error(ex, ex.Message);
                 _logger.Error(ex, ex.StackTrace);
-                
+
                 throw;
             }
             finally
