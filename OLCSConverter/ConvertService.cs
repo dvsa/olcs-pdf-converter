@@ -57,7 +57,7 @@ namespace OLCSConverter
                 var doc = WordInstance.Documents.Open(
                     FileName: ref objFilePath,
                     ConfirmConversions: _missing,
-                    ReadOnly: _objFalse,
+                    ReadOnly: _objTrue,
                     AddToRecentFiles: _missing,
                     PasswordDocument: _missing,
                     PasswordTemplate: _missing,
@@ -66,7 +66,11 @@ namespace OLCSConverter
                     WritePasswordTemplate: _missing, 
                     Format: _missing, 
                     Encoding: _missing, 
-                    Visible: _objTrue);
+                    Visible: _objTrue, 
+                    OpenAndRepair: _objTrue,
+                    DocumentDirection: ref _missing, 
+                    NoEncodingDialog: _objTrue, 
+                    XMLTransform: ref _missing);
 
                 //WordInstance.Documents.Open(
                 //    FileName: ref objFilePath,
