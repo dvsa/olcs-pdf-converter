@@ -47,7 +47,7 @@ namespace OLCSConverter
         {
             try
             {
-                _logger.Info($"Converting fileName = {fileName}");
+                _logger.Info($"Converting - {fileName}");
 
                 object objFilePath = Path.Combine(_srcPath, fileName);
                 string fileNameWithoutExt = Path.GetFileNameWithoutExtension(fileName);
@@ -90,16 +90,20 @@ namespace OLCSConverter
                 //    NoEncodingDialog: _objTrue, 
                 //    XMLTransform: ref _missing);
 
+                _logger.Debug($"Opened document - {fileName}");
                 doc.Activate();
+                _logger.Debug($"Activated document - {fileName}");
                 doc.SaveAs(Path.Combine(_destPath, $"{fileNameWithoutExt}.pdf"), WdSaveFormat.wdFormatPDF);
+                _logger.Debug($"Saved PDF - {fileName}");
                 doc.Close(false, ref _missing, ref _missing);
+                _logger.Debug($"Closed document - {fileName}");
                 doc = null;
 
-                _logger.Info($"Successfully converted fileName = {fileName}");
+                _logger.Info($"Successfully converted - {fileName}");
             }
             catch (Exception ex)
             {
-                _logger.Error(ex, $"Error converted fileName = {fileName}");
+                _logger.Error(ex, $"Error converting - {fileName}");
                 _logger.Error(ex, ex.Message);
                 _logger.Error(ex, ex.StackTrace);
 
