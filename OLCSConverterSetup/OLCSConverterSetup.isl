@@ -343,7 +343,7 @@
 		<col def="S0">ISDotNetInstallerArgsRollback</col>
 		<row><td>ISX_DEFAULTCOMPONENT</td><td>{E2D92E25-9E9C-4D1E-9E01-0775C4AD5E11}</td><td>INSTALLDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>Microsoft.Owin.Host.HttpListener.dll</td><td>{660B1363-BD77-4D36-BCDD-63285239AF2C}</td><td>INSTALLDIR</td><td>2</td><td/><td>microsoft.owin.host.httplist</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>OLCSConverter.exe</td><td>{34289F96-56E8-43FD-8A1B-D5408CB9F2CF}</td><td>INSTALLDIR</td><td>2</td><td/><td>olcsconverter.exe</td><td>81</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>OLCSConverter.exe</td><td>{34289F96-56E8-43FD-8A1B-D5408CB9F2CF}</td><td>INSTALLDIR</td><td>2</td><td/><td>olcsconverter.exe</td><td>113</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 	</table>
 
 	<table name="Condition">
