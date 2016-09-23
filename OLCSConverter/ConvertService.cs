@@ -52,8 +52,10 @@ namespace OLCSConverter
                 object objFilePath = Path.Combine(_srcPath, fileName);
                 string fileNameWithoutExt = Path.GetFileNameWithoutExtension(fileName);
 
+                _logger.Debug($"Setting Word alerts to none - {fileName}");
                 WordInstance.DisplayAlerts = WdAlertLevel.wdAlertsNone;
-
+                _logger.Debug($"After set Word alerts to none - {fileName}");
+                
                 var doc = WordInstance.Documents.Open(
                     FileName: ref objFilePath,
                     ConfirmConversions: _missing,
