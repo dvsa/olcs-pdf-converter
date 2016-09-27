@@ -48,9 +48,9 @@ namespace OLCSConverter
             var provider = new MultipartMemoryStreamProvider();
             await Request.Content.ReadAsMultipartAsync(provider);
             
-            HttpContent content = provider.Contents.First();
-            string uploadedFileName = content.Headers.ContentDisposition.FileName.Trim('\"');
-            byte[] uploadedFile = await provider.Contents.First().ReadAsByteArrayAsync();
+            var content = provider.Contents.First();
+            var uploadedFileName = content.Headers.ContentDisposition.FileName.Trim('\"');
+            var uploadedFile = await provider.Contents.First().ReadAsByteArrayAsync();
 
             if (!_acceptableExts.Any(ext => uploadedFileName.EndsWith(ext, StringComparison.OrdinalIgnoreCase)))
             {
@@ -60,10 +60,10 @@ namespace OLCSConverter
             try
             {
                 CleanupOldFiles();
-                string fileName = DateTime.UtcNow.ToString("yyyy-MM-dd_HH_mm_ss_") + uploadedFileName;
+                var fileName = DateTime.UtcNow.ToString("yyyy-MM-dd_HH_mm_ss_") + uploadedFileName;
                 
                 File.WriteAllBytes(Path.Combine(_srcPath, fileName), uploadedFile);
-                string filenameWithoutExt = Path.GetFileNameWithoutExtension(fileName);
+                var filenameWithoutExt = Path.GetFileNameWithoutExtension(fileName);
                 
                 PrintSvc.ProcessThroughWord(fileName);
 
@@ -89,7 +89,7 @@ namespace OLCSConverter
 
         private HttpResponseMessage CreateFileResponse(string filePathToSend, string uploadedFileName)
         {
-            HttpResponseMessage result = new HttpResponseMessage(HttpStatusCode.OK);
+            var result = new HttpResponseMessage(HttpStatusCode.OK);
             var stream = new FileStream(filePathToSend, FileMode.Open, FileAccess.Read);
             result.Content = new StreamContent(stream);
             result.Content.Headers.ContentType = new MediaTypeHeaderValue("application/pdf");

@@ -50,16 +50,15 @@ namespace OLCSConverter
                 _logger.Info($"Converting - {fileName}");
 
                 object objFilePath = Path.Combine(_srcPath, fileName);
-                _logger.Info($"Converting - {fileName}");
 
-                string fileNameWithoutExt = Path.GetFileNameWithoutExtension(fileName);
-                _logger.Info($"Filename without - {fileName}");
+                var fileNameWithoutExt = Path.GetFileNameWithoutExtension(fileName);
+                _logger.Debug($"Filename without extension - {fileNameWithoutExt}");
                 _logger.Debug($"Setting Word alerts to none - {fileName}");
                 WordInstance.DisplayAlerts = WdAlertLevel.wdAlertsNone;
                 _logger.Debug($"After set Word alerts to none - {fileName}");
                 
                 var doc = WordInstance.Documents.Open(
-                    FileName: ref objFilePath,
+                    FileName: objFilePath,
                     ConfirmConversions: _objFalse,
                     ReadOnly: _objTrue,
                     AddToRecentFiles: _objFalse,
@@ -72,34 +71,16 @@ namespace OLCSConverter
                     Encoding: _missing, 
                     Visible: _objFalse, 
                     OpenAndRepair: _objTrue,
-                    DocumentDirection: ref _missing, 
+                    DocumentDirection: _missing, 
                     NoEncodingDialog: _objTrue, 
-                    XMLTransform: ref _missing);
-
-                //WordInstance.Documents.Open(
-                //    FileName: ref objFilePath,
-                //    ConfirmConversions: _objFalse,
-                //    ReadOnly: _objTrue,
-                //    AddToRecentFiles: _objFalse,
-                //    PasswordDocument: ref _missing,
-                //    PasswordTemplate: ref _missing,
-                //    Revert: ref _missing,
-                //    WritePasswordDocument: ref _missing,
-                //    WritePasswordTemplate: ref _missing,
-                //    Format: ref _missing,
-                //    Encoding: ref _missing,
-                //    Visible: _objFalse, 
-                //    OpenAndRepair: _objTrue, 
-                //    DocumentDirection: ref _missing, 
-                //    NoEncodingDialog: _objTrue, 
-                //    XMLTransform: ref _missing);
+                    XMLTransform: _missing);
 
                 _logger.Debug($"Opened document - {fileName}");
                 doc.Activate();
                 _logger.Debug($"Activated document - {fileName}");
                 doc.SaveAs(Path.Combine(_destPath, $"{fileNameWithoutExt}.pdf"), WdSaveFormat.wdFormatPDF);
                 _logger.Debug($"Saved PDF - {fileName}");
-                doc.Close(false, ref _missing, ref _missing);
+                doc.Close(false, _missing, _missing);
                 _logger.Debug($"Closed document - {fileName}");
                 doc = null;
 
