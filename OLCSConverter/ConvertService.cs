@@ -48,7 +48,6 @@ namespace OLCSConverter
             try
             {
                 _logger.Info($"Converting - {fileName}");
-
                 object objFilePath = Path.Combine(_srcPath, fileName);
 
                 var fileNameWithoutExt = Path.GetFileNameWithoutExtension(fileName);

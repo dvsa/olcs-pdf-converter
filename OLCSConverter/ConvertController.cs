@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Http;
 using NLog;
@@ -19,6 +20,7 @@ namespace OLCSConverter
         private readonly string _destPath;
         private readonly string[] _acceptableExts = {".rtf", ".doc", ".docx"};
         private readonly bool _canShowWord;
+        private readonly double _timeoutSeconds;
 
         public ConvertService PrintSvc { get; }
 
@@ -27,6 +29,7 @@ namespace OLCSConverter
             _srcPath = ConfigurationManager.AppSettings["srcDocsPath"];
             _destPath = ConfigurationManager.AppSettings["destDocsPath"];
             _canShowWord = bool.Parse(ConfigurationManager.AppSettings["canShowWord"]);
+            _timeoutSeconds = double.Parse(ConfigurationManager.AppSettings["timeoutSeconds"]);
 
             PrintSvc = new ConvertService(_srcPath, _destPath, _canShowWord);
         }
@@ -63,9 +66,19 @@ namespace OLCSConverter
                 var fileName = DateTime.UtcNow.ToString("yyyy-MM-dd_HH_mm_ss_") + uploadedFileName;
                 
                 File.WriteAllBytes(Path.Combine(_srcPath, fileName), uploadedFile);
+
                 var filenameWithoutExt = Path.GetFileNameWithoutExtension(fileName);
-                
-                PrintSvc.ProcessThroughWord(fileName);
+                var t = new Task(() =>
+                {
+                    PrintSvc.ProcessThroughWord(fileName);
+                });
+
+                t.Start();
+                if (!t.Wait(TimeSpan.FromSeconds(_timeoutSeconds)))
+                {
+                    _logger.Debug("Conversion time out.");
+                    return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, $"Request took too long to process. Time given to process was {_timeoutSeconds} seconds");
+                }
 
                 var filePathToSend = Path.Combine(_destPath, $"{filenameWithoutExt}.pdf");
 
