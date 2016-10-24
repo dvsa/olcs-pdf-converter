@@ -77,7 +77,25 @@ namespace OLCSConverter
                 _logger.Debug($"Opened document - {fileName}");
                 doc.Activate();
                 _logger.Debug($"Activated document - {fileName}");
-                doc.SaveAs(Path.Combine(_destPath, $"{fileNameWithoutExt}.pdf"), WdSaveFormat.wdFormatPDF);
+
+                doc.SaveAs(
+                    FileName: Path.Combine(_destPath, $"{fileNameWithoutExt}.pdf"),
+                    FileFormat: WdSaveFormat.wdFormatPDF,
+                    LockComments: _missing,
+                    Password: _missing,
+                    AddToRecentFiles: _missing,
+                    WritePassword: _missing,
+                    ReadOnlyRecommended: _missing,
+                    EmbedTrueTypeFonts: _objTrue,
+                    SaveNativePictureFormat: _objTrue,
+                    SaveFormsData: _missing,
+                    SaveAsAOCELetter: _missing,
+                    Encoding: _missing,
+                    InsertLineBreaks: _missing,
+                    AllowSubstitutions: _missing,
+                    LineEnding: _missing,
+                    AddBiDiMarks: _missing);
+
                 _logger.Debug($"Saved PDF - {fileName}");
                 doc.Close(false, _missing, _missing);
                 _logger.Debug($"Closed document - {fileName}");
